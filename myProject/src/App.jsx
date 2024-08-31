@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./scenes/Navbar";
 import Hero from "./scenes/Hero";
 import Cards from "./scenes/Cards";
+import Swiper from "./scenes/Swiper";
+import ChatApp from "./components/ChatApp";
 
 const App = () => {
   const [selectedPage, setSelectedPage] = useState("Home");
@@ -26,9 +28,13 @@ const App = () => {
       <section className="xl:padding-l wide:padding-r padding-b bg-lime-100">
         <Hero />
       </section>
-      <section>
+      {/* <section>
         <Cards />
+      </section> */}
+      <section>
+        <Swiper />
       </section>
+      <ChatApp />
     </main>
   );
 };

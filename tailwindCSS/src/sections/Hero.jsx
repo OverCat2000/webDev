@@ -4,9 +4,19 @@ import { arrowRight } from "../assets/icons";
 import { statistics, shoes } from "../constants";
 import { bigShoe1 } from "../assets/images";
 import ShoeCard from "../components/ShoeCard";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Hero = () => {
   const [bigShoeImage, setBigShoeImage] = useState(bigShoe1);
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
 
   return (
     <section
@@ -93,15 +103,17 @@ const Hero = () => {
         -bottom-[10%] gap-4 sm:gap-6
         sm:left-[10%] max-sm:px-6"
         >
-          {shoes.map((item) => (
-            <div>
-              <ShoeCard
-                imgURL={item}
-                changeBigShoeImage={(item) => setBigShoeImage(item)}
-                bigShoeImage={bigShoeImage}
-              />
-            </div>
-          ))}
+          <Slider {...settings}>
+            {shoes.map((item) => (
+              <div>
+                <ShoeCard
+                  imgURL={item}
+                  changeBigShoeImage={(item) => setBigShoeImage(item)}
+                  bigShoeImage={bigShoeImage}
+                />
+              </div>
+            ))}
+          </Slider>
         </div>
       </div>
     </section>

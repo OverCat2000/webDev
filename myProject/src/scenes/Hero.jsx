@@ -60,7 +60,7 @@ export const Hero = () => {
         -bottom-[25%] gap-4 sm:gap-6
         sm:left-[10%] max-sm:px-6"
         >
-          {/* small Image Cards */}
+          {/* small Image Cards
           {personalities.map((item) => (
             <div key={item.title}>
               <PersonalityCard
@@ -69,7 +69,7 @@ export const Hero = () => {
                 bigImage={bigImage}
               />
             </div>
-          ))}
+          ))} */}
         </div>
       </div>
     </section>
