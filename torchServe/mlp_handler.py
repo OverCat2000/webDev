@@ -1,5 +1,6 @@
 import torch
 from ts.torch_handler.base_handler import BaseHandler
+import numpy as np
 
 class MLPModelHandler(BaseHandler):
     def initialize(self, context):
@@ -32,12 +33,15 @@ class MLPModelHandler(BaseHandler):
             raise TypeError("All values in 'body' must be numbers")
         
         # Convert dictionary values to a list
-        input_values = list(input_data.values())
-        
+        temp = input_data
+        tmp = torch.tensor(np.array(list(zip(temp.values()))), dtype=torch.float32)
+        tmp = tmp.transpose(0, 1)
+        print(tmp)
+
         # Convert list to a PyTorch tensor
-        input_tensor = torch.tensor(input_values, dtype=torch.float32)
+        # input_tensor = torch.tensor(input_values, dtype=torch.float32)
         
-        return input_tensor
+        return tmp
 
     def inference(self, input_tensor):
         """
